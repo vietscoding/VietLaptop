@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|c:\\users\\acer\\source\\repos\\vietlaptop\\productcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:productcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\productcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:productcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmaddproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:frmaddproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmaddproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:frmaddproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{21EB3AE6-C337-4F75-95C1-0ABAAC514A80}|VietLaptop.csproj|solutionrelative:frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "frmAddProduct.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmAddProduct.cs",
+              "RelativeDocumentMoniker": "frmAddProduct.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmAddProduct.cs",
+              "RelativeToolTip": "frmAddProduct.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAowIUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T07:23:46.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmAddProduct.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmAddProduct.cs",
+              "RelativeDocumentMoniker": "frmAddProduct.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmAddProduct.cs [Design]",
+              "RelativeToolTip": "frmAddProduct.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T06:56:33.869Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmLogin.cs",
+              "RelativeDocumentMoniker": "frmLogin.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmLogin.cs",
+              "RelativeToolTip": "frmLogin.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAkwHQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T09:00:54.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductControl.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\ProductControl.cs",
+              "RelativeDocumentMoniker": "ProductControl.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\ProductControl.cs [Design]",
+              "RelativeToolTip": "ProductControl.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-27T02:51:08.431Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductControl.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\ProductControl.cs",
+              "RelativeDocumentMoniker": "ProductControl.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\ProductControl.cs",
+              "RelativeToolTip": "ProductControl.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAD4v64AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T07:00:58.484Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmMain.cs [Design]",
+              "RelativeToolTip": "frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T09:38:04.562Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmMain.cs",
+              "RelativeDocumentMoniker": "frmMain.cs",
+              "ToolTip": "C:\\Users\\Acer\\source\\repos\\VietLaptop\\frmMain.cs",
+              "RelativeToolTip": "frmMain.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAswFIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-26T10:03:07.96Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
