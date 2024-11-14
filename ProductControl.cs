@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -15,7 +16,7 @@ namespace VietLaptop
 {
     public partial class ProductControl : UserControl
     {
-        private string _connectionString = "Data Source=VIETDOAN\\SQLEXPRESS;Initial Catalog=VietLaptopStore;Integrated Security=True;";
+        public static string _connectionString = "Data Source=VIETDOAN\\SQLEXPRESS;Initial Catalog=VietLaptopStore;Integrated Security=True;";
         private SqlConnection connection;
         private SqlDataAdapter dataAdapter;
         private DataTable dataTable;
@@ -27,6 +28,14 @@ namespace VietLaptop
             LoadData();
             dgvProduct.ReadOnly = true;
 
+            
+            var imgColumn = dgvProduct.Columns["image"] as DataGridViewColumn;
+            if (imgColumn != null )
+            {
+                imgColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+            dgvProduct.RowTemplate.Height = 100;
+
         }
 
         public void LoadData()
@@ -36,27 +45,23 @@ namespace VietLaptop
             dataTable = new DataTable();
             dataAdapter.Fill(dataTable);
             dgvProduct.DataSource = dataTable;
-             
-            foreach (DataRow row in dataTable.Rows)
+
+            foreach (DataGridViewRow row in dgvProduct.Rows)
             {
-                string imagePath = row["image_url"].ToString();
-                Image productImage = null;
-
-                // Kiểm tra xem file ảnh có tồn tại không
-                if (File.Exists(imagePath))
+                if (row.Cells["image_url"].Value != null)
                 {
-                    productImage = Image.FromFile(imagePath);
+                    string imagePath = row.Cells["image_url"].Value.ToString();
+                    if (System.IO.File.Exists(imagePath))
+                    {
+                        Image image = Image.FromFile(imagePath);
+                        row.Cells["image"].Value = image;
+                    }
+                    else
+                    {
+                        Image errorImage = Image.FromFile("C:\\Users\\Acer\\Downloads\\ErrorLaptopImage.png");
+                    }
                 }
-                else
-                {
-                    productImage = Properties.Resources.Google_Noto_Emoji_Objects_62823_laptop_computer_72;
-                }
-
-                // Thêm dữ liệu vào DataGridView
-                // dgvProduct.Rows.Add(productImage, row["product_name"], row["brand"], row["model"], row["selling_price"], row["inventory_quantity"], row["description"]);
             }
-
-
         }
 
         private void ProductControl_Load(object sender, EventArgs e)
@@ -67,19 +72,11 @@ namespace VietLaptop
         private frmAddProduct addProductForm;
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            //frmAddProduct frmAddProduct = new frmAddProduct();
-            //frmAddProduct.ShowDialog();
-            //LoadData();
-
-            //frmAddProduct addProductForm = new frmAddProduct();
-            //addProductForm.FormClosed += (s, args) => LoadData(); 
-            //addProductForm.Show();
             if (addProductForm == null || addProductForm.IsDisposed)
             {
                 addProductForm = new frmAddProduct();
                 addProductForm.FormClosed += (s, args) =>
                 {
-                    // Cập nhật dữ liệu khi form đóng và đặt biến về null
                     LoadData();
                     addProductForm = null;
                 };
@@ -87,10 +84,24 @@ namespace VietLaptop
             }
             else
             {
-                // Đưa form addProductForm lên foreground nếu đã mở trước đó
                 addProductForm.BringToFront();
             }
+        }
 
+        private void dataGridViewProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dgvProduct.Rows[e.RowIndex];
+                txtEditProductName.Text = selectedRow.Cells["productnameDataGridViewTextBoxColumn"].Value.ToString();
+                cmbEditBrand.Text = selectedRow.Cells["brandDataGridViewTextBoxColumn"].Value.ToString();
+                txtEditModel.Text = selectedRow.Cells["modelDataGridViewTextBoxColumn"].Value.ToString();
+                txtEditPrice.Text = selectedRow.Cells["sellingpriceDataGridViewTextBoxColumn"].Value.ToString();
+                txtEditInventory.Text = selectedRow.Cells["inventoryquantityDataGridViewTextBoxColumn"].Value.ToString();
+                txtEditDescription.Text = selectedRow.Cells["descriptionDataGridViewTextBoxColumn"].Value.ToString();
+                txtEditImageURL.Text = selectedRow.Cells["image_url"].Value.ToString();
+                picProductImage.Image = Image.FromFile(txtEditImageURL.Text);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -124,12 +135,10 @@ namespace VietLaptop
 
             }
             else { MessageBox.Show("Please select the product you want to delete", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); }
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //string Id = txtProductID.Text.Trim();
             string productName = txtProductName.Text.Trim();
             string brand = cmbBrand.Text.Trim();
             string model = txtModel.Text.Trim();
@@ -145,51 +154,31 @@ namespace VietLaptop
             string query = "SELECT * FROM Products WHERE 1=1";
 
             if (!string.IsNullOrEmpty(productName))
-            {
-                query += " AND product_name LIKE @ProductName";
-            }
+            { query += " AND product_name LIKE @ProductName"; }
             if (!string.IsNullOrEmpty(brand))
-            {
-                query += " AND brand LIKE @Brand";
-            }
+            { query += " AND brand LIKE @Brand"; }
             if (!string.IsNullOrEmpty(model))
-            {
-                query += " AND model LIKE @Model";
-            }
+            { query += " AND model LIKE @Model"; }
             if (isMinPriceValid)
-            {
-                query += " AND selling_price <= @MinPrice";
-            }
+            { query += " AND selling_price <= @MinPrice"; }
             if (isMaxPriceValid)
-            {
-                query += " AND selling_price <= @MaxPrice";
-            }
+            { query += " AND selling_price <= @MaxPrice"; }
             if (isMinInventoryValid)
-            {
-                query += " AND inventory_quantity <= @MinInventory";
-            }
+            { query += " AND inventory_quantity <= @MinInventory"; }
             if (isMaxInventoryValid && maxInventory >= minInventory)
-            {
-                query += " AND inventory_quantity <= @MaxInventory";
-            }
-           
+            { query += " AND inventory_quantity <= @MaxInventory"; }
+
             if (!string.IsNullOrEmpty(description))
-            {
-                query += " AND description LIKE @Description";
-            }
-            
+            { query += " AND description LIKE @Description"; }
+
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, connection);
 
                 if (!string.IsNullOrEmpty(productName))
-                {
-                    cmd.Parameters.AddWithValue("ProductName", "%" + productName + "%");
-                }
+                { cmd.Parameters.AddWithValue("ProductName", "%" + productName + "%"); }
                 if (!string.IsNullOrEmpty(brand))
-                {
-                    cmd.Parameters.AddWithValue("Brand", "%" + brand + "%");
-                }
+                { cmd.Parameters.AddWithValue("Brand", "%" + brand + "%"); }
                 if (!string.IsNullOrEmpty(model))
                 {
                     cmd.Parameters.AddWithValue("Model", "%" + model + "%");
@@ -200,13 +189,13 @@ namespace VietLaptop
                 }
                 if (isMaxPriceValid)
                 {
-                    cmd.Parameters.AddWithValue("MaxPrice",  maxPrice);
+                    cmd.Parameters.AddWithValue("MaxPrice", maxPrice);
                 }
                 if (isMinInventoryValid)
                 {
                     cmd.Parameters.AddWithValue("MinInventory", minInventory);
                 }
-                if (isMaxInventoryValid)
+                if (isMaxInventoryValid) 
                 {
                     cmd.Parameters.AddWithValue("MaxInventory", maxInventory);
                 }
@@ -222,11 +211,12 @@ namespace VietLaptop
 
             }
 
-
         }
+
 
         private void EnabledSearchTextBoxs(bool condition)
         {
+            
             txtProductName.Enabled = condition;
             txtModel.Enabled = condition;
             txtMinPrice.Enabled = condition;
@@ -235,19 +225,25 @@ namespace VietLaptop
             txtMaxInventory.Enabled = condition;
             txtDescription.Enabled = condition;
             cmbBrand.Enabled = condition;
+
         }
 
         private void txtProductID_TextChanged(object sender, EventArgs e)
         {
+
             if (txtProductID.Text.Trim().Length > 0)
             {
                 EnabledSearchTextBoxs(false);
             }
+
             else { EnabledSearchTextBoxs(true); }
+
         }
+
 
         private void btnClearAll_Click(object sender, EventArgs e)
         {
+
             txtProductID.Text = string.Empty;
             txtProductName.Text = string.Empty;
             txtModel.Text = string.Empty;
@@ -257,16 +253,117 @@ namespace VietLaptop
             txtMaxInventory.Text = string.Empty;
             txtDescription.Text = string.Empty;
             cmbBrand.Text = string.Empty;
-        }
-
-        private void btnEditProduct_Click(object sender, EventArgs e)
-        {
 
         }
+
 
         private void txtMinInventory_TextChanged(object sender, EventArgs e)
         {
 
         }
+
+
+        private void txtEditProductName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnClearEditTextBoxs_Click(object sender, EventArgs e)
+        {
+
+            txtEditProductName.Text = string.Empty.Trim();
+            cmbEditBrand.Text = string.Empty.Trim();
+            txtEditModel.Text = string.Empty.Trim();
+            txtEditPrice.Text = string.Empty.Trim();
+            txtEditInventory.Text = string.Empty.Trim();
+            txtEditDescription.Text = string.Empty.Trim();
+            txtEditImageURL.Text = string.Empty.Trim();
+            picProductImage.Image = Image.FromFile("C:\\Users\\Acer\\source\\repos\\VietLaptop\\Resources\\Google-Noto-Emoji-Objects-62823-laptop-computer.512.png");
+
+        }
+
+        private void btnEditProduct_Click(object sender, EventArgs e)
+        {
+
+            if (dgvProduct.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select a product to edit");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtEditProductName.Text) ||
+        string.IsNullOrWhiteSpace(cmbEditBrand.Text) ||
+        string.IsNullOrWhiteSpace(txtEditModel.Text) ||
+        string.IsNullOrWhiteSpace(txtEditPrice.Text) ||
+        string.IsNullOrWhiteSpace(txtEditInventory.Text) ||
+        string.IsNullOrWhiteSpace(txtEditDescription.Text) ||
+        string.IsNullOrWhiteSpace(txtEditImageURL.Text))
+            {
+                MessageBox.Show("Please enter all the necessary information.");
+                return;
+            }
+
+            string productIdStr = dgvProduct.SelectedRows[0].Cells["productidDataGridViewTextBoxColumn"].Value.ToString();
+            int productId;
+            if (!int.TryParse(productIdStr, out productId))
+            {
+                MessageBox.Show("Invalid Product ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                string query = @"
+                                UPDATE Products 
+                                SET 
+                                    product_name = @product_name, 
+                                    brand = @brand, 
+                                    model = @model, 
+                                    selling_price = @selling_price, 
+                                    inventory_quantity = @inventory_quantity, 
+                                    description = @description,
+                                    image_url = @image_url,
+                                    update_at = GETDATE()
+                                WHERE product_id = @product_id;
+                            ";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@product_name", txtEditProductName.Text);
+                    command.Parameters.AddWithValue("@brand", cmbEditBrand.Text);
+                    command.Parameters.AddWithValue("@model", txtEditModel.Text);
+                    command.Parameters.AddWithValue("@selling_price", Convert.ToDecimal(txtEditPrice.Text));
+                    command.Parameters.AddWithValue("@inventory_quantity", Convert.ToInt32(txtEditInventory.Text));
+                    command.Parameters.AddWithValue("@description", txtEditDescription.Text);
+                    command.Parameters.AddWithValue("@image_url", txtEditImageURL.Text);
+                    command.Parameters.AddWithValue("@product_id", productId);
+                    
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Successful product update!");
+                        LoadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No product found to update.");
+                    }
+                }
+            }
+        }
+
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Select image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                picProductImage.Image = Image.FromFile(openFileDialog1.FileName);
+                txtEditImageURL.Text = (openFileDialog1.FileName).ToString();
+            }
+        }
+
     }
 }

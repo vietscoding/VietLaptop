@@ -46,6 +46,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnClearText = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.picImage = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnUploadImage = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // txtProductName
@@ -61,7 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 44);
+            this.label1.Location = new System.Drawing.Point(19, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 19);
             this.label1.TabIndex = 1;
@@ -71,7 +76,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 80);
+            this.label2.Location = new System.Drawing.Point(19, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 19);
             this.label2.TabIndex = 1;
@@ -81,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(19, 121);
+            this.label3.Location = new System.Drawing.Point(19, 117);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 19);
             this.label3.TabIndex = 1;
@@ -91,7 +96,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(19, 165);
+            this.label4.Location = new System.Drawing.Point(19, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(97, 19);
             this.label4.TabIndex = 1;
@@ -101,7 +106,7 @@
             // 
             this.lblInventoryQuantity.AutoSize = true;
             this.lblInventoryQuantity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInventoryQuantity.Location = new System.Drawing.Point(19, 210);
+            this.lblInventoryQuantity.Location = new System.Drawing.Point(19, 206);
             this.lblInventoryQuantity.Name = "lblInventoryQuantity";
             this.lblInventoryQuantity.Size = new System.Drawing.Size(149, 19);
             this.lblInventoryQuantity.TabIndex = 1;
@@ -111,7 +116,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(19, 251);
+            this.label5.Location = new System.Drawing.Point(19, 247);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 19);
             this.label5.TabIndex = 1;
@@ -121,11 +126,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 296);
+            this.label6.Location = new System.Drawing.Point(19, 292);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 19);
+            this.label6.Size = new System.Drawing.Size(93, 19);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Image (URL)";
+            this.label6.Text = "Image path";
             // 
             // txtProductBrand
             // 
@@ -180,12 +185,13 @@
             // btnCancel
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Salmon;
+            this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Location = new System.Drawing.Point(23, 353);
+            this.btnCancel.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnCancel.Location = new System.Drawing.Point(366, 465);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(114, 59);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Size = new System.Drawing.Size(96, 41);
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -193,11 +199,12 @@
             // btnClearText
             // 
             this.btnClearText.BackColor = System.Drawing.Color.Yellow;
+            this.btnClearText.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnClearText.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearText.ForeColor = System.Drawing.Color.Black;
-            this.btnClearText.Location = new System.Drawing.Point(186, 353);
+            this.btnClearText.Location = new System.Drawing.Point(366, 413);
             this.btnClearText.Name = "btnClearText";
-            this.btnClearText.Size = new System.Drawing.Size(116, 59);
+            this.btnClearText.Size = new System.Drawing.Size(96, 39);
             this.btnClearText.TabIndex = 9;
             this.btnClearText.Text = "Clear";
             this.btnClearText.UseVisualStyleBackColor = false;
@@ -206,24 +213,63 @@
             // btnAddProduct
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnAddProduct.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAddProduct.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddProduct.Location = new System.Drawing.Point(347, 353);
+            this.btnAddProduct.Location = new System.Drawing.Point(365, 514);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(114, 59);
-            this.btnAddProduct.TabIndex = 10;
+            this.btnAddProduct.Size = new System.Drawing.Size(96, 54);
+            this.btnAddProduct.TabIndex = 11;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(19, 342);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 19);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Image";
+            // 
+            // picImage
+            // 
+            this.picImage.Location = new System.Drawing.Point(24, 364);
+            this.picImage.Name = "picImage";
+            this.picImage.Size = new System.Drawing.Size(315, 204);
+            this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picImage.TabIndex = 11;
+            this.picImage.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnUploadImage
+            // 
+            this.btnUploadImage.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnUploadImage.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnUploadImage.Location = new System.Drawing.Point(365, 364);
+            this.btnUploadImage.Name = "btnUploadImage";
+            this.btnUploadImage.Size = new System.Drawing.Size(96, 37);
+            this.btnUploadImage.TabIndex = 8;
+            this.btnUploadImage.Text = "Upload";
+            this.btnUploadImage.UseVisualStyleBackColor = false;
+            this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 481);
+            this.ClientSize = new System.Drawing.Size(494, 591);
+            this.Controls.Add(this.btnUploadImage);
+            this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnAddProduct);
             this.Controls.Add(this.btnClearText);
             this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblInventoryQuantity);
@@ -239,12 +285,10 @@
             this.Controls.Add(this.txtProductBrand);
             this.Controls.Add(this.txtProductName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(520, 520);
-            this.MinimizeBox = false;
             this.Name = "frmAddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";
+            ((System.ComponentModel.ISupportInitialize)(this.picImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,5 +313,9 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnClearText;
         private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox picImage;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnUploadImage;
     }
 }

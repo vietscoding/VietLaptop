@@ -144,6 +144,18 @@ namespace VietLaptop
             txtProductDescription.Text = string.Empty;
             txtProductImageURL.Text = string.Empty;
             txtProductName.Focus();
+            picImage.Image = Image.FromFile("C:\\Users\\Acer\\source\\repos\\VietLaptop\\Resources\\Google-Noto-Emoji-Objects-62823-laptop-computer.512.png");
+
+        }
+
+        private void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "Select image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                picImage.Image = Image.FromFile(openFileDialog1.FileName);
+                txtProductImageURL.Text = (openFileDialog1.FileName).ToString();
+            }
         }
     }
 }
