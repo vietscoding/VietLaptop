@@ -28,13 +28,13 @@ namespace VietLaptop
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             string productName = txtProductName.Text;
-            string brand = txtProductBrand.Text;
+            //string brand = txtProductBrand.Text;
+            string brand = cmbBrand.Text;
+
             string model = txtProductModel.Text;
             string priceString = txtProductPrice.Text;
             decimal price = 0;
-            // decimal price = Convert.ToDecimal(priceString);
             decimal.TryParse(priceString, out price);
-            // object inventory = Convert.ToInt32(txtProductInventoryQuantity.Text);
             string inventoryString = txtProductInventoryQuantity.Text;
             int inventory = 0;
             int.TryParse(inventoryString, out inventory);
@@ -56,7 +56,7 @@ namespace VietLaptop
                                 "Error Input",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
-                txtProductBrand.Focus();
+                cmbBrand.Focus();
             }
             else if (string.IsNullOrWhiteSpace(model))
             {
@@ -104,7 +104,7 @@ namespace VietLaptop
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                 txtProductImageURL.Focus();
-            } //////////////////////////////////////////////
+            } 
             else
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
@@ -137,7 +137,7 @@ namespace VietLaptop
         private void btnClearText_Click(object sender, EventArgs e)
         {
             txtProductName.Text = string.Empty;
-            txtProductBrand.Text = string.Empty;
+            cmbBrand.Text = string.Empty;
             txtProductModel.Text = string.Empty;
             txtProductPrice.Text = string.Empty;
             txtProductInventoryQuantity.Text = string.Empty;

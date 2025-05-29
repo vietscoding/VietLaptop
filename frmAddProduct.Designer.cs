@@ -37,7 +37,6 @@
             this.lblInventoryQuantity = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtProductBrand = new System.Windows.Forms.TextBox();
             this.txtProductModel = new System.Windows.Forms.TextBox();
             this.txtProductPrice = new System.Windows.Forms.TextBox();
             this.txtProductInventoryQuantity = new System.Windows.Forms.TextBox();
@@ -50,13 +49,14 @@
             this.picImage = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnUploadImage = new System.Windows.Forms.Button();
+            this.cmbBrand = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picImage)).BeginInit();
             this.SuspendLayout();
             // 
             // txtProductName
             // 
             this.txtProductName.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductName.Location = new System.Drawing.Point(172, 37);
+            this.txtProductName.Location = new System.Drawing.Point(172, 33);
             this.txtProductName.MaxLength = 100;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(289, 26);
@@ -132,19 +132,10 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Image path";
             // 
-            // txtProductBrand
-            // 
-            this.txtProductBrand.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductBrand.Location = new System.Drawing.Point(172, 73);
-            this.txtProductBrand.MaxLength = 100;
-            this.txtProductBrand.Name = "txtProductBrand";
-            this.txtProductBrand.Size = new System.Drawing.Size(289, 26);
-            this.txtProductBrand.TabIndex = 2;
-            // 
             // txtProductModel
             // 
             this.txtProductModel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductModel.Location = new System.Drawing.Point(172, 114);
+            this.txtProductModel.Location = new System.Drawing.Point(172, 110);
             this.txtProductModel.MaxLength = 100;
             this.txtProductModel.Name = "txtProductModel";
             this.txtProductModel.Size = new System.Drawing.Size(289, 26);
@@ -153,7 +144,7 @@
             // txtProductPrice
             // 
             this.txtProductPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductPrice.Location = new System.Drawing.Point(172, 158);
+            this.txtProductPrice.Location = new System.Drawing.Point(172, 154);
             this.txtProductPrice.Name = "txtProductPrice";
             this.txtProductPrice.Size = new System.Drawing.Size(289, 26);
             this.txtProductPrice.TabIndex = 4;
@@ -161,7 +152,7 @@
             // txtProductInventoryQuantity
             // 
             this.txtProductInventoryQuantity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductInventoryQuantity.Location = new System.Drawing.Point(172, 203);
+            this.txtProductInventoryQuantity.Location = new System.Drawing.Point(172, 199);
             this.txtProductInventoryQuantity.Name = "txtProductInventoryQuantity";
             this.txtProductInventoryQuantity.Size = new System.Drawing.Size(289, 26);
             this.txtProductInventoryQuantity.TabIndex = 5;
@@ -169,7 +160,7 @@
             // txtProductDescription
             // 
             this.txtProductDescription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductDescription.Location = new System.Drawing.Point(172, 244);
+            this.txtProductDescription.Location = new System.Drawing.Point(172, 240);
             this.txtProductDescription.Name = "txtProductDescription";
             this.txtProductDescription.Size = new System.Drawing.Size(289, 26);
             this.txtProductDescription.TabIndex = 6;
@@ -177,7 +168,7 @@
             // txtProductImageURL
             // 
             this.txtProductImageURL.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProductImageURL.Location = new System.Drawing.Point(172, 289);
+            this.txtProductImageURL.Location = new System.Drawing.Point(172, 285);
             this.txtProductImageURL.Name = "txtProductImageURL";
             this.txtProductImageURL.Size = new System.Drawing.Size(289, 26);
             this.txtProductImageURL.TabIndex = 7;
@@ -186,11 +177,13 @@
             // 
             this.btnCancel.BackColor = System.Drawing.Color.Salmon;
             this.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCancel.FlatAppearance.BorderSize = 2;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnCancel.Location = new System.Drawing.Point(366, 465);
+            this.btnCancel.Location = new System.Drawing.Point(326, 465);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(96, 41);
+            this.btnCancel.Size = new System.Drawing.Size(136, 41);
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -200,11 +193,13 @@
             // 
             this.btnClearText.BackColor = System.Drawing.Color.Yellow;
             this.btnClearText.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnClearText.FlatAppearance.BorderSize = 2;
+            this.btnClearText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearText.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearText.ForeColor = System.Drawing.Color.Black;
-            this.btnClearText.Location = new System.Drawing.Point(366, 413);
+            this.btnClearText.Location = new System.Drawing.Point(326, 413);
             this.btnClearText.Name = "btnClearText";
-            this.btnClearText.Size = new System.Drawing.Size(96, 39);
+            this.btnClearText.Size = new System.Drawing.Size(136, 39);
             this.btnClearText.TabIndex = 9;
             this.btnClearText.Text = "Clear";
             this.btnClearText.UseVisualStyleBackColor = false;
@@ -214,11 +209,13 @@
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.LimeGreen;
             this.btnAddProduct.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddProduct.FlatAppearance.BorderSize = 2;
+            this.btnAddProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddProduct.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddProduct.ForeColor = System.Drawing.Color.Transparent;
-            this.btnAddProduct.Location = new System.Drawing.Point(365, 514);
+            this.btnAddProduct.Location = new System.Drawing.Point(326, 514);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(96, 54);
+            this.btnAddProduct.Size = new System.Drawing.Size(135, 54);
             this.btnAddProduct.TabIndex = 11;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = false;
@@ -238,7 +235,7 @@
             // 
             this.picImage.Location = new System.Drawing.Point(24, 364);
             this.picImage.Name = "picImage";
-            this.picImage.Size = new System.Drawing.Size(315, 204);
+            this.picImage.Size = new System.Drawing.Size(259, 204);
             this.picImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picImage.TabIndex = 11;
             this.picImage.TabStop = false;
@@ -249,21 +246,59 @@
             // 
             // btnUploadImage
             // 
-            this.btnUploadImage.BackColor = System.Drawing.Color.BurlyWood;
+            this.btnUploadImage.BackColor = System.Drawing.Color.MediumTurquoise;
+            this.btnUploadImage.FlatAppearance.BorderSize = 2;
+            this.btnUploadImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUploadImage.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnUploadImage.Location = new System.Drawing.Point(365, 364);
+            this.btnUploadImage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnUploadImage.Location = new System.Drawing.Point(326, 363);
             this.btnUploadImage.Name = "btnUploadImage";
-            this.btnUploadImage.Size = new System.Drawing.Size(96, 37);
+            this.btnUploadImage.Size = new System.Drawing.Size(135, 38);
             this.btnUploadImage.TabIndex = 8;
             this.btnUploadImage.Text = "Upload";
             this.btnUploadImage.UseVisualStyleBackColor = false;
             this.btnUploadImage.Click += new System.EventHandler(this.btnUploadImage_Click);
             // 
+            // cmbBrand
+            // 
+            this.cmbBrand.AutoCompleteCustomSource.AddRange(new string[] {
+            "Apple",
+            "Dell",
+            "HP",
+            "Lenovo",
+            "Asus",
+            "Acer",
+            "MSI",
+            "Microsoft",
+            "Samsung",
+            "LG"});
+            this.cmbBrand.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbBrand.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbBrand.Font = new System.Drawing.Font("Arial", 12F);
+            this.cmbBrand.FormattingEnabled = true;
+            this.cmbBrand.Items.AddRange(new object[] {
+            "Apple",
+            "Dell",
+            "HP",
+            "Lenovo",
+            "Asus",
+            "Acer",
+            "MSI",
+            "Microsoft",
+            "Samsung",
+            "LG"});
+            this.cmbBrand.Location = new System.Drawing.Point(172, 73);
+            this.cmbBrand.Name = "cmbBrand";
+            this.cmbBrand.Size = new System.Drawing.Size(289, 26);
+            this.cmbBrand.TabIndex = 12;
+            // 
             // frmAddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(494, 591);
+            this.Controls.Add(this.cmbBrand);
             this.Controls.Add(this.btnUploadImage);
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnAddProduct);
@@ -282,9 +317,10 @@
             this.Controls.Add(this.txtProductInventoryQuantity);
             this.Controls.Add(this.txtProductPrice);
             this.Controls.Add(this.txtProductModel);
-            this.Controls.Add(this.txtProductBrand);
             this.Controls.Add(this.txtProductName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(510, 630);
+            this.MinimumSize = new System.Drawing.Size(510, 630);
             this.Name = "frmAddProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";
@@ -304,7 +340,6 @@
         private System.Windows.Forms.Label lblInventoryQuantity;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtProductBrand;
         private System.Windows.Forms.TextBox txtProductModel;
         private System.Windows.Forms.TextBox txtProductPrice;
         private System.Windows.Forms.TextBox txtProductInventoryQuantity;
@@ -317,5 +352,6 @@
         private System.Windows.Forms.PictureBox picImage;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnUploadImage;
+        private System.Windows.Forms.ComboBox cmbBrand;
     }
 }

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.performanceCounter1 = new System.Diagnostics.PerformanceCounter();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlNavigation = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnUser = new System.Windows.Forms.Button();
@@ -40,10 +40,10 @@
             this.btnEmployee = new System.Windows.Forms.Button();
             this.btnCustomer = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnOrder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.pnlNavigation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,23 +64,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "VietLaptop Store";
             // 
-            // panel1
+            // pnlNavigation
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnSettings);
-            this.panel1.Controls.Add(this.btnUser);
-            this.panel1.Controls.Add(this.btnStatistic);
-            this.panel1.Controls.Add(this.btnProduct);
-            this.panel1.Controls.Add(this.btnEmployee);
-            this.panel1.Controls.Add(this.btnCustomer);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnLogout);
-            this.panel1.Controls.Add(this.btnDashboard);
-            this.panel1.Location = new System.Drawing.Point(-6, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(249, 1080);
-            this.panel1.TabIndex = 3;
+            this.pnlNavigation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
+            this.pnlNavigation.Controls.Add(this.pictureBox1);
+            this.pnlNavigation.Controls.Add(this.btnSettings);
+            this.pnlNavigation.Controls.Add(this.btnUser);
+            this.pnlNavigation.Controls.Add(this.btnStatistic);
+            this.pnlNavigation.Controls.Add(this.btnProduct);
+            this.pnlNavigation.Controls.Add(this.btnEmployee);
+            this.pnlNavigation.Controls.Add(this.btnCustomer);
+            this.pnlNavigation.Controls.Add(this.label1);
+            this.pnlNavigation.Controls.Add(this.btnLogout);
+            this.pnlNavigation.Controls.Add(this.btnOrder);
+            this.pnlNavigation.Location = new System.Drawing.Point(-6, 0);
+            this.pnlNavigation.Name = "pnlNavigation";
+            this.pnlNavigation.Size = new System.Drawing.Size(249, 1080);
+            this.pnlNavigation.TabIndex = 3;
             // 
             // pictureBox1
             // 
@@ -100,12 +100,13 @@
             this.btnSettings.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSettings.Image = global::VietLaptop.Properties.Resources.Fa_Team_Fontawesome_FontAwesome_Gear_32;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(3, 804);
+            this.btnSettings.Location = new System.Drawing.Point(4, 779);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(246, 68);
-            this.btnSettings.TabIndex = 13;
+            this.btnSettings.Size = new System.Drawing.Size(244, 68);
+            this.btnSettings.TabIndex = 0;
             this.btnSettings.Text = "Settings";
             this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Visible = false;
             // 
             // btnUser
             // 
@@ -117,10 +118,11 @@
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUser.Location = new System.Drawing.Point(3, 712);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(246, 68);
-            this.btnUser.TabIndex = 11;
+            this.btnUser.Size = new System.Drawing.Size(245, 68);
+            this.btnUser.TabIndex = 0;
             this.btnUser.Text = "User";
             this.btnUser.UseVisualStyleBackColor = false;
+            this.btnUser.Visible = false;
             // 
             // btnStatistic
             // 
@@ -130,12 +132,13 @@
             this.btnStatistic.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStatistic.Image = global::VietLaptop.Properties.Resources.Steve_Zondicons_Chart_Pie_32;
             this.btnStatistic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStatistic.Location = new System.Drawing.Point(3, 577);
+            this.btnStatistic.Location = new System.Drawing.Point(4, 558);
             this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(246, 68);
-            this.btnStatistic.TabIndex = 9;
+            this.btnStatistic.Size = new System.Drawing.Size(244, 68);
+            this.btnStatistic.TabIndex = 0;
             this.btnStatistic.Text = "Statistic";
             this.btnStatistic.UseVisualStyleBackColor = false;
+            this.btnStatistic.Click += new System.EventHandler(this.btnStatistic_Click);
             // 
             // btnProduct
             // 
@@ -145,10 +148,10 @@
             this.btnProduct.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProduct.Image = global::VietLaptop.Properties.Resources.Bootstrap_Bootstrap_Bootstrap_laptop_fill_32;
             this.btnProduct.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProduct.Location = new System.Drawing.Point(3, 315);
+            this.btnProduct.Location = new System.Drawing.Point(4, 355);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(246, 68);
-            this.btnProduct.TabIndex = 6;
+            this.btnProduct.Size = new System.Drawing.Size(244, 68);
+            this.btnProduct.TabIndex = 0;
             this.btnProduct.Text = "Product";
             this.btnProduct.UseVisualStyleBackColor = false;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
@@ -161,12 +164,13 @@
             this.btnEmployee.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEmployee.Image = global::VietLaptop.Properties.Resources.Picol_Picol_User_Profile_32;
             this.btnEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployee.Location = new System.Drawing.Point(3, 489);
+            this.btnEmployee.Location = new System.Drawing.Point(4, 491);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(246, 68);
-            this.btnEmployee.TabIndex = 8;
+            this.btnEmployee.Size = new System.Drawing.Size(244, 68);
+            this.btnEmployee.TabIndex = 0;
             this.btnEmployee.Text = "Employee";
             this.btnEmployee.UseVisualStyleBackColor = false;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
             // 
             // btnCustomer
             // 
@@ -177,44 +181,49 @@
             this.btnCustomer.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCustomer.Image = global::VietLaptop.Properties.Resources.Icons8_Windows_8_Users_Group_32;
             this.btnCustomer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCustomer.Location = new System.Drawing.Point(3, 402);
+            this.btnCustomer.Location = new System.Drawing.Point(4, 422);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(246, 68);
-            this.btnCustomer.TabIndex = 7;
+            this.btnCustomer.Size = new System.Drawing.Size(244, 68);
+            this.btnCustomer.TabIndex = 0;
             this.btnCustomer.Text = "Customer";
             this.btnCustomer.UseVisualStyleBackColor = false;
+            this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
-            this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnLogout.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLogout.FlatAppearance.BorderSize = 2;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Arial", 15.75F);
+            this.btnLogout.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.Image = global::VietLaptop.Properties.Resources.Hopstarter_Sleek_Xp_Software_Windows_Turn_Off_48;
-            this.btnLogout.Location = new System.Drawing.Point(97, 904);
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(56, 867);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(48, 45);
-            this.btnLogout.TabIndex = 12;
+            this.btnLogout.Size = new System.Drawing.Size(136, 53);
+            this.btnLogout.TabIndex = 0;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = false;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
-            // btnDashboard
+            // btnOrder
             // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
-            this.btnDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDashboard.Image = global::VietLaptop.Properties.Resources.Pictogrammers_Material_Home_32;
-            this.btnDashboard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 229);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(249, 68);
-            this.btnDashboard.TabIndex = 5;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            this.btnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
+            this.btnOrder.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOrder.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(209)))), ((int)(((byte)(248)))));
+            this.btnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrder.Font = new System.Drawing.Font("Cascadia Mono", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnOrder.Image = global::VietLaptop.Properties.Resources.Pictogrammers_Material_Home_32;
+            this.btnOrder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrder.Location = new System.Drawing.Point(4, 289);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(244, 68);
+            this.btnOrder.TabIndex = 0;
+            this.btnOrder.Text = "Order";
+            this.btnOrder.UseVisualStyleBackColor = false;
+            this.btnOrder.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel2
             // 
@@ -230,16 +239,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1904, 961);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlNavigation);
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmMain";
             this.Text = "VSSMS";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.performanceCounter1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlNavigation.ResumeLayout(false);
+            this.pnlNavigation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -249,8 +259,7 @@
 
         private System.Diagnostics.PerformanceCounter performanceCounter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnOrder;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnProduct;
         private System.Windows.Forms.Button btnEmployee;
@@ -260,5 +269,6 @@
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.Panel pnlNavigation;
     }
 }
